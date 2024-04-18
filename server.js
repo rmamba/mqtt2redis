@@ -15,6 +15,8 @@ const MQTT_PORT = process.env.MQTT_PORT || '1883';
 const MQTT_SUB = process.env.MQTT_SUB || 'mqtt2redis/#';
 // redis://user:pass@server:port
 const REDIS_CONNECTION = process.env.REDIS_CONNECTION || 'redis://localhost:6379';
+const REDIS_USER = process.env.REDIS_USER;
+const REDIS_PASS = process.env.REDIS_PASS;
 const REDIS_PREFIX = process.env.REDIS_PREFIX || 'mqtt2redis';
 const REDIS_DB = parseInt(process.env.REDIS_DB || '10');
 
@@ -88,10 +90,17 @@ const run = async () => {
     });
 
     console.log('Connecting to REDIS server...');
-    redisClient = redis.createClient({
+    const redisConfig = {
         database: REDIS_DB,
         url: REDIS_CONNECTION,
-    });
+    };
+    if (REDIS_USER) {
+        redisConfig.username = REDIS_USER;
+    }
+    if (REDIS_PASS) {
+        redisConfig.password = REDIS_PASS;
+    }
+    redisClient = redis.createClient(redisConfig);
 
     redisClient.on('error', err => console.log('Redis Client Error', err));
 
