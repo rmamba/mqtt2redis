@@ -1,6 +1,7 @@
 # WHAT is mqtt2redis?
 
 This container will update Redis values everytime MQTT data changes.
+Container includes openvpn client connection so either Redis, MQTT or both can be kept in a secure environment.
 
 # MQTT Configuration
 
