@@ -14,4 +14,4 @@ COPY run.sh .
 RUN chmod +x run.sh
 
 # Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
-CMD [ "run.sh" ]
+CMD ./run.sh
