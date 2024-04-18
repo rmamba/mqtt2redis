@@ -15,7 +15,7 @@ const MQTT_PORT = process.env.MQTT_PORT || '1883';
 const MQTT_SUB = process.env.MQTT_SUB || 'mqtt2redis/#';
 // redis://user:pass@server:port
 const REDIS_CONNECTION = process.env.REDIS_CONNECTION || 'redis://localhost:6379';
-const REDIS_PREFIX = process.env.MQTT_SUB || 'mqtt2redis';
+const REDIS_PREFIX = process.env.REDIS_PREFIX || 'mqtt2redis';
 const REDIS_DB = parseInt(process.env.REDIS_DB || '10');
 
 let UPDATE_INTERVAL = parseInt(process.env.UPDATE_INTERVAL || '1000');
