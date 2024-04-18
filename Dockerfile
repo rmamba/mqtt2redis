@@ -11,4 +11,4 @@ COPY package.json .
 RUN yarn install
 
 # Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
-CMD [ "openvpn", "--config", "/openvpn/client.ovpn", "&&", "node", "server.js" ] 
+CMD [ "run.sh" ]
