@@ -89,7 +89,7 @@ const run = async () => {
         mqttClient.subscribe(sub);
     });
 
-    console.log('Connecting to REDIS server...');
+    console.log(`Connecting to ${REDIS_CONNECTION}...`);
     const redisConfig = {
         database: REDIS_DB,
         url: REDIS_CONNECTION,
