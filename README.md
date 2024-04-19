@@ -21,6 +21,8 @@ The values listed are default so you can only use the env variable if you want t
 You can define REDIS connection via env variables like so:
 ```
 REDIS_CONNECTION=redis://localhost:6379
+REDIS_USER=
+REDIS_PASS=
 REDIS_PREFIX=mqtt2redis
 REDIS_DB=10
 ```
@@ -33,5 +35,5 @@ The values listed are default so you can only use the env variable if you want t
 
 Start your container with this command replacing values to match your system:
 ```
-docker run --name mqtt2redis -e MQTT_SERVER=192.168.13.37 -e MQTT_USER=user -e MQTT_PASS=password -e REDIS_CONNECTION=redis://localhost:6379 -e REDIS_DB=10 -d rmamba/mqtt2redis
+docker run --name mqtt2redis -v /mnt/cache/appdata/mqtt2redis:/openvpn -e MQTT_SERVER=192.168.13.37 -e MQTT_USER=user -e MQTT_PASS=password -e REDIS_CONNECTION=redis://localhost:6379 -e REDIS_PASS=1337 -e REDIS_DB=10 -d rmamba/mqtt2redis
 ```
