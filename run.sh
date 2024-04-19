@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# open vpn connection for redis server
-openvpn --config /openvpn/client.ovpn &
+# open vpn connection for redis server if client.ovpn is present
+if [ -e "/openvpn/client.ovpn" ]
+then
+    openvpn --config /openvpn/client.ovpn &
+fi
 
 # run the main app
 node server.js
