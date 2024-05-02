@@ -3,7 +3,7 @@
 # open vpn connection for redis server if client.ovpn is present
 if [ -e "/openvpn/client.ovpn" ]
 then
-    openvpn --config /openvpn/client.ovpn &
+    openvpn --config /openvpn/client.ovpn --reneg-sec ${OPENVPN_REGEN_SEC:-0} &
 fi
 
 # run the main app
